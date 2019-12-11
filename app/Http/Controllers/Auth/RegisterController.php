@@ -4,7 +4,6 @@
 namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Controller as Controller;
 
@@ -26,7 +25,7 @@ class RegisterController extends Controller
         $this->validate($request, [
             'first_name' => 'required|string',
             'last_name' => 'required|string',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required|confirmed',
         ]);
 
